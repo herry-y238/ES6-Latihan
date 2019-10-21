@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow Functions</title>
+</head>
+<body>
+
+<script>
+// ubah data dibawah ke object array
+const race = '100m Dash';
+const winners = ['Kapp Apride', 'Don Juan', 'Ome Galul'];
+
+
+// const win = winners.map((winner, i) => ({name :winner, race: race, place :i + 1}));
+
+// apabila hanya satu race atau variable maka bisa dari race: race ke race saja
+const win = winners.map((winner, i) => ({name :winner, race, place :i + 1}));
+
+// contoh lain filter angka lebih dari 50
+const ages = [25,62,82,65,87,23,4,45,11,46,17,18,69,70];
+const old = ages.filter(age => age >= 50);
+console.log(old);
+
+console.log(win);
+console.table(win);
+</script>
+
+</body>
+</html>

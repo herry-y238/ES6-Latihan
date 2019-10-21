@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Default Arguments</title>
+</head>
+<body>
+<script>
+  // function menghitung total bayar
+  // biasanya menggunakan banyak if (tax === undefined { tax = 0.13}) dan dengan banyak if tapi bisa dibuat lebih simple dengan ES6 pada saat function di define contoh tax = 0.13
+  function calculateBill(total, tax = 0.13, tip = 0.15) {
+    return total + (total * tax) + (total * tip);
+  }
+
+  // apabila tax tidak di define maka apabila tidak ada tax, maka masukan undefined 
+  const totalBill = calculateBill(100, undefined, 0.25);
+  console.log(totalBill);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions → → </title>
+</head>
+<body>
+<script>
+// arrow function adalah anonymous function
+
+  const names = ['wes', 'kait', 'lux'];
+
+  // menambahkan bos ke akhir dari semua array tanpa arrow function
+  const fullNames = names.map(function(name) {
+    return `${name} bos`;
+  });
+  console.log(fullNames);
+
+  // menambahkan bos ke akhir dari semua array dengan arrow function
+  const fullNames2 = names.map((name) => {
+    return `${name} bos`;
+  });
+  console.log(fullNames2);
+
+  // menambahkan bos ke akhir dari semua array dengan arrow function dari (name) ke name
+  const fullNames3 = names.map(name => {
+    return `${name} bos`;
+  });
+  console.log(fullNames3);
+
+  // menggunakan arrow function tanpa return
+  const fullNames4 = names.map(name => `${name} bos`);
+  console.log(fullNames4);
+
+  // menggunakan arrow function tanpa return dan return langsung value
+  const fullNames5 = names.map(() => `cool bos`);
+  console.log(fullNames5);
+
+
+  const sayMyName = (name) => {
+    alert(`Hello ${name}!`)
+  }
+
+  sayMyName('Wes');
+
+</script>
+</body>
+</html>
