@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Create HTML With Template</title>
+	</head>
+	<body>
+		<div id="pokemon"></div>
+		<div id="cats"></div>
+		<div id="songs"></div>
+		<div id="beer"></div>
+	<script>
+		// membuat markup html dengan backtick `` easy way
+
+		const poke = {
+			name : 'Metapod',
+			skill : 'Harden',
+			region : 'Johto',
+			bio : 'A pokemon that useless until evolving to butterfree',
+		};
+
+		const markup = `
+			<div class="pokemon">
+				<h2>
+					${poke.name}
+				</h2>
+				<p class="skill"><span>Skill :</span> ${poke.skill}</p>
+				<p class="region"><span>Region :</span> ${poke.region}</p>
+				<p class="bio"><span>Bio :</span> ${poke.bio}</p>
+			</div>
+		`;
+
+		console.log(markup);
+
+		document.querySelector('#pokemon').innerHTML = markup;
+
+		// membuat markup html nesting loop dengan backtick dan arrow function dan map function easy way
+
+		const cats = [
+			{name : 'My Man', age : 2},
+			{name : 'Dudeee', age : 3},
+			{name : 'Tehehe', age : 5}
+		];
+
+		const newMarkup = `
+			<ul class="cats">
+				${cats.map(cats => `<li>${cats.name} is ${cats.age * 7}</li>`).join('')}
+			</ul>
+		`;
+
+		console.log(newMarkup);
+		document.querySelector('#cats').innerHTML = newMarkup;
+
+		// membuat markup html dengan if statement easy way dengan ternary operator apabila ada featuring atau tidak
+
+		const song = {
+			name : 'Kukukuku',
+			artist : 'Shami',
+			featuring : 'Cent'
+		};
+
+		const songMarkup = `
+			<div class="song">
+				<p>
+					${song.name} - ${song.artist}
+					${song.featuring ? `(Featuring ${song.featuring})` : ''}
+				</p>
+			</div>
+		`;
+
+		console.log(songMarkup);
+		document.querySelector('#songs').innerHTML = songMarkup;
+
+		// bagaimana jika data agak sedikit kompleks dan code semakin sulit dimaintain
+
+		const beer = {
+			name : 'Belgian Wit',
+			brewery : 'Steam Whistle Brewery',
+			keywords : ['pale', 'cloudy', 'spiced', 'crisp']
+		};
+
+		function renderKeywords(keywords) {
+			return `
+				<ul>
+					${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+				</ul>
+			`;
+		}
+
+		const beerMarkup = `
+			<div class="beer">
+				<h2>${beer.name}</h2>
+				<p class="brewery">${beer.brewery}</p>
+				${renderKeywords(beer.keywords)}
+			</div>
+		`;
+
+		console.log(beerMarkup);
+		document.querySelector('#beer').innerHTML = beerMarkup;
+	</script>
+
+	</body>
+</html>

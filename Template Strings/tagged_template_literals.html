@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tagged Template Literals</title>
+	</head>
+	<style type="text/css">
+		.hl {
+			color: red;
+		}
+	</style>
+	<body>
+		
+	<script>
+		// fitur dari ES6 adalah bisa tagged function dan bisa membuat string seperti yang kita mau seperti menambahkan css atau if else
+
+		// pertama buat function dan tagged langsung ke dalam const sentence
+		// didalam function arguments bisa dimasukan string dan value, apabila tidak tahu berapa banyak value yang dimasukan ke dalam kalimat tersebut maka bisa menggunakan ...values
+
+		function highlight(strings, ...values) {
+			// debugger;
+			// apabila menggunakan debbuger maka di source bagian scope akan terlihat ada 3 strings dan 2 array, maka string akan selalu lebih banyak daripada array, apabila ada value diakhir kalimat maka akan ada string kosong pada akhir kalimat
+
+			let str = '';
+			strings.forEach((string, i) => {
+				// menggunakan || = or untuk menghilangkan undefined atau value kosong
+				// str += string + (values[i] || '');
+
+				str += `${string} <span contenteditable class="hl">${values[i] || ''}</span>`;
+			});
+			return str;
+
+		}
+
+		const name = 'Shami';
+		const age = 15;
+		const sentence = highlight`My dog's name is ${name} and he is ${age} years old`;
+
+		document.body.innerHTML = sentence;
+		console.log(sentence);
+
+	</script>
+
+	</body>
+</html>

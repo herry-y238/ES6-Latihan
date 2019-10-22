@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Template Tagged Exercise</title>
+	</head>
+	<body>
+		<div class="bio"></div>
+
+	<script>
+		// kapan tagged template akan digunakan, contoh dibawah adalah menambahkan kepanjangan dari kalimat HTML, JS dan CSS.
+
+		// didalam kalimat bisa dimasukan ${values} atau bisa dengan string ${'HTML'}
+
+		// menambahkan tag html <abbr></abbr> ke setiap string html css dan js
+
+		const dict = {
+			HTML : 'Hyper Text Markup Language',
+			CSS : 'Cascading Style Sheet',
+			JS : 'Javascript'
+		};
+
+		function addAbbreviations(strings, ...values) {
+			const abbreviated = values.map(value => {
+				if (dict[value]) {
+					return `<abbr title="${dict[value]}">${value}</abbr>`
+				}
+				return value;
+			});
+
+			// return ke kalimat bisa dengan reduce atau let str = '', disini menggunakan reduce
+			return strings.reduce((sentence, string, i) => {
+				return `${sentence}${string}${abbreviated[i] || ''}`;
+			}, '');
+		}
+
+		const first = 'John';
+		const last = 'Doee';
+		const sentence = addAbbreviations`Hello my name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'}, ${'JS'}`;
+
+		const bio = document.querySelector('.bio');
+		const p = document.createElement('p');
+		p.innerHTML = sentence;
+		bio.appendChild(p);
+	</script>
+
+	</body>
+</html>

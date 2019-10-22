@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Template String Intro</title>
+	</head>
+	<body>
+		
+	<script>
+		// jika mau masukan string ke dalam javascript sangat merepotkan, ada cara yang lebih mudah di es6 menggunakan ``
+
+		const name = "John";
+		const age = 3;
+
+		// contoh sebelum ES6
+		const kalimat = 'My Cat ' + name + ' is ' + age * 6 + ' years old.';
+
+		// contoh ES6 
+		const sentence = `My Dog ${name} is ${age * 6} years old.`;
+
+		console.log(sentence);
+		console.log(kalimat);
+	</script>
+
+	</body>
+</html>
