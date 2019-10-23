@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring!</title>
+</head>
+<body>
+<script>
+  // Javascript yang memungkinkan untuk mengekstrak data dari array, object, items lebih dari satu dan ke variable tersendiri
+  
+  // destructing from object
+  const person = {
+    first: 'Wes',
+    last: 'Bos',
+    country: 'Canada',
+    city: 'Hamilton',
+    twitter: '@wesbos'
+  };
+
+  // contoh mengambil data dari person diatas versi lama
+  // const first = person.first;
+  // const last = person.last;
+
+  // dengan destructure akan jadi seperti ini jika dibaca
+  // mengambil first, last, twitter dari person
+  const { first, last, twitter } = person;
+
+  console.log(first);
+  console.log(last);
+  console.log(twitter);
+
+  // bagimana kalau datanya agak rumit dan nested seperti dibawah
+  // contoh lama
+  // const twitter = wes.links.social.twitter;
+  // const facebook = wes.links.social.facebook;
+  const wes = {
+    first: 'Wes',
+    last: 'Bos',
+    links: {
+      social: {
+        twitter: 'https://twitter.com/wesbos',
+        facebook: 'https://facebook.com/wesbos.developer',
+      },
+      web: {
+        blog: 'https://wesbos.com'
+      }
+    }
+  };
+  // dengan destructure akan jadi seperti ini
+  // dan anda bisa mengganti key di data dengan cara seperti dibawah
+  // twitter : tweet <-- data twitter menjadi dipanggil tweet
+  const { twitter: tweet, facebook: fb } = wes.links.social;
+
+  const settings = { width: 300, color: 'black' }  // height, fontSize
+  const { width = 100, height = 100, color = 'blue', fontSize = 25} = settings;
+
+</script>
+</body>
+</html>

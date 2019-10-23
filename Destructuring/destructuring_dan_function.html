@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring Dan Function</title>
+</head>
+<body>
+<script>
+  // dibawah ini adalah function untuk convert currency simple
+  function convertCurrency(amount) {
+    const converted = {
+      USD: amount * 0.76,
+      GPB: amount * 0.53,
+      AUD: amount * 1.01,
+      MEX: amount * 13.30
+    };
+    return converted;
+  }
+  // cara biasa yang sering digunakan apabila ingin mendapatkan salah satu dari mata uang dari function
+  const hundo = convertCurrency(100);
+  console.log(hundo.AUD);
+  console.log(hundo.MEX);
+
+  // dengan destructuring bisa diambil sekaligus dan order bisa diacak dan bisa dipilih yang mau ditampilkan saja seperti kalau yang mau ditampilkan hanya USD dan GPB
+  // const { USD, GPB} = convertCurrency(100); = data dari USD dan GPB
+  const { GPB, USD, AUD, MEX } = convertCurrency(100);
+  console.log(USD, GPB, AUD, MEX);
+
+  // contoh dari contoh yang lama menggunakan tip calculator
+  // contoh lama berjalan karena urutannya kita sudah tahu, bagaimana kalau urutannya tidak kita tahu
+  // bisa menggunakan curly bracket {} didalam function
+  function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
+    return total + (tip * total) + (tax * total);
+  }
+
+  // cara panggil functionnya atau seperti dibawah juga bisa dan akan tetap keluar angka yang sama
+  // const bill = tipCalc({total: 200, tip: 0.20, tax: 0.15});
+
+  // apabila dipanggil dengan function biasa tipCalc();
+  // tidak akan berjalan cannot match against undefined or null
+  // penjelasannya karena apabila value tidak dimasukan pada saat di panggil maka akan diberikan value kosong di = {} di function diatas maka perlu value di tipCalc({ insert value here });
+  const bill = tipCalc({ tip: 0.20, total: 200 });
+  console.log(bill);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New String Methods</title>
+</head>
+<body>
+
+<script>
+// new string method di ES6 bisa menjadi pengganti regex,
+// tapi case sensitive jadi regex masih lebih baik
+
+const course = 'RFB2';
+const flightNumber = '20-AC2018-jz';
+const accountNumber = '825242631RT0001';
+
+const make = 'BMW';
+const model = 'x5';
+const colour = 'Royal Blue';
+
+// .startsWith()
+// mencari string dari depan kalimat contoh
+course.startsWith('RF'); // true
+flightNumber.startsWith('AC'); // false
+flightNumber.startsWith('AC', 3); // true
+
+// .endsWith()
+// mencari string dari belakang kalimat contoh
+flightNumber.endsWith('jz'); // true
+accountNumber.endsWith('RT'); // false
+accountNumber.endsWith('RT', 11); // true
+
+// .includes()
+// mencari string yang ada di dalam kalimat, case sensitive
+flightNumber.includes('AC'); //true
+flightNumber.includes('ac'); //false
+
+// .repeat()
+// repeat adalah mengulang string dan mengulang selama yang anda mau
+// contoh dari penggunaan dari repeat adalah seperti contoh dibawah, dimana repeat spasi agar semua kalimat make, model, colour berada disisi sebelah kanan
+function leftPad(str, length = 20) {
+  return `→ ${' '.repeat(length - str.length)}${str}`;
+}
+
+console.log(leftPad(make));
+console.log(leftPad(model));
+console.log(leftPad(colour));
+
+
+</script>
+
+</body>
+</html>

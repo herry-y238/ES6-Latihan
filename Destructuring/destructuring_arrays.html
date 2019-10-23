@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring Arrays</title>
+</head>
+<body>
+<script>
+  // destructing juga bisa digunakan di arrays
+  // jika data menggunakan {} arrays menggunakan []
+  const details = ['Wes Bos', 123, 'wesbos.com'];
+  const [name, id, website] = details;
+  console.log(name, id, website);
+
+  // bagaimana jika mendapatkan data string seperti dibawah ini, bisa langsung destructing saja
+  // tapi kalau ada 3 extra items dan tidak menambahkan tidak akan terjadi apa-apa kecuali tidak tampil
+  const data = 'Basketball,Sports,90210,23,wes,bos,cool';
+  const [itemName, itemName, sku, inventory] = data.split(',');
+  console.log(itemName, itemName, sku, inventory);
+
+  // jika mau menambahkan sisa dari array bisa menggunakan seperti dibawah
+  // data dibawah adalah team, wes adalah captain, harry adalah assistant, sisanya adalah players
+  const team = ['Wes', 'Harry', 'Sarah', 'Keegan', 'Riker'];
+
+  // maka dipanggil dengan cara seperti ini
+  const [captain, assistant, ...players] = team;
+  console.log(captain, assistant, players);
+
+</script>
+</body>
+</html>

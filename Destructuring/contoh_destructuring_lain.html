@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring in Action!</title>
+</head>
+<body>
+<script>
+	// contoh lain destructuring di sehari-hari
+	// apabila mau membuat app yang saling mengganti value seperti
+	// tag team wrestler inRing = 'Hulk Hogan' menjadi inRing = 'The Rock' dan onSide = 'Hulk Hogan'
+	// maka bisa menggunakan destructuring
+
+  let inRing = 'Hulk Hogan';
+  let onSide = 'The Rock';
+
+  console.log(inRing, onSide);
+  // pemakaian destructuring
+  [inRing, onSide] = [onSide, inRing];
+  console.log(inRing, onSide);
+
+</script>
+</body>
+</html>
