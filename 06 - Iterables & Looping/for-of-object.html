@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables & Looping</title>
+</head>
+<body>
+
+<script>
+  // di es6 belum support Object.values() tapi di ES2017 sudah contoh dibawah adalah contoh apabila tidak bisa menggunakan Object.values() dengan for in
+
+  const apple = {
+    color: 'Red',
+    size: 'Medium',
+    weight: 50,
+    sugar: 10
+  };
+
+  // dengan for in
+  // agak membingungkan tapi berguna untuk looping sebelum es2017
+  for (const prop in apple) {
+    const value = apple[prop];
+    console.log(value, prop);
+  }
+
+  // mendapatkan keys
+  const keys = Object.keys(apple);
+  console.log(keys); // [color, size, weight, sugar]
+
+  // mendapatkan values
+  const values = Object.values(apple);
+  console.log(values); // ['Red', 'Medium', 50, 10]
+
+  // mendapatkan entries, menggabungkan key dan value ke satu array
+  const entries = Object.entries(apple);
+  console.log(entries);
+
+  // looping dari object.keys
+  for (const key of keys) {
+    console.log(key);
+  }
+
+  // looping dari object.values
+  for (const keyValue of values) {
+    console.log(keyValue);
+  }
+
+  // kalau pakai entries harus di destructuring dulu
+  for (const [appleKey, appleValues] of entries) {
+    console.log(`The apple ${appleKey} is ${appleValues}`)
+  }
+
+</script>
+</body>
+</html>
