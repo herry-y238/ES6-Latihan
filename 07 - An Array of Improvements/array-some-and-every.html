@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array .some() and .every()</title>
+</head>
+<body>
+<script>
+  // ada array method .some() dan .every()
+  // some dan every akan cek semua data di array apakah data tersebut
+  // memenuhi syarat yang diajukan
+
+  //contoh ada array isi umur
+  const ages = [32, 15, 19, 12];
+
+  // apa yang terjadi di code dibawah pada saat ages.some() berjalan maka array ages akan dicek dan ada lebih dari 18, maka return true
+  // 👵👨 is there at least one adult in the group?
+  const adultPresent = ages.some(age => age >= 18);
+  console.log(adultPresent); //true
+
+  // apa yang terjadi di code dibawah pada saat ages.every() berjalan maka array ages akan dicek dan jika ada yang lebih besar dari 19 maka return true, karena tidak ada yang lebih dari 19 maka return false
+  // 🍻 is everyone old enough to drink?
+  const allOldEnough = ages.every(age => age >= 19);
+  console.log(allOldEnough); // false
+
+
+</script>
+</body>
+</html>
