@@ -6,18 +6,29 @@
 </head>
 <body>
 <script>
+	// Spread operator adalah mengambil semua item dari iterable dan memasukan ke array yang diinginkan
+	// iterable adalah semua yang bisa diloop dengan for of
 
+	// contoh membuat array ketiga yang mengabungkan semua featured dan specialty
   const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
   const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
 
+  // contoh lama
+  // const pizzas = featured.concat(specialty);
+
+  // contoh lagi yang agak membingungkan
+  // let pizzas = [];
+  // pizzas = pizzas.concat(featured);
+  // pizzas.push('veg');
+  // pizzas.concat(specialty);
+
+
+  // menggunakan spread ...
   const pizzas = [...featured, 'veg', ...specialty];
   const fridayPizzas = [...pizzas];
 
-  const deepDish = {
-    pizzaName: 'Deep Dish',
-    size: 'Medium',
-    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
-  };
+  console.log(pizzas);
+  console.log(fridayPizzas);
 
 </script>
 </body>

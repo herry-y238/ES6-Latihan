@@ -11,27 +11,48 @@
     <p>Randy</p>
   </div>
 <script>
-  const people = Array.from(document.querySelectorAll('.people p'));
-  const names = people.map((person) => person.textContent );
+  // contoh lain dari spread
 
+  // masih node list const people yang ini
+  // const people = document.querySelectorAll('.people p');
+
+  // mengubah dari node list ke true array ada 2 cara
+  // cara pertama
+  const people = Array.from(document.querySelectorAll('.people p'));
+  // cara kedua 
+  // const people = [...document.querySelectorAll('.people p')];
+  // mendapatkan array dari div class people
+  const names = people.map((person) => person.textContent );
+  console.log(names);
+
+  // contoh lain spread menggabungkan 2 array
   const deepDish = {
     pizzaName: 'Deep Dish',
     size: 'Medium',
     ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
   };
 
+  // menggabungkan deepDish dan shoppingList
   const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
-  // console.log(shoppingList);
+  console.log(shoppingList);
 
+  // contoh lain bagaimana cara menghapus comment id : 632429
   const comments = [
     { id: 209384, text: 'I love your dog!' },
     { id: 523423, text: 'Cuuute! 🐐' },
     { id: 632429, text: 'You are so dumb' },
     { id: 192834, text: 'Nice work on this wes!' },
   ];
+
+  // mengambil id = 632429
   const id = 632429;
+  // mencari 632429 dengan findIndex
   const commentIndex = comments.findIndex(comment => comment.id === id);
 
+  // tidak akan berjalan tanpa spread dan menampilkan array of array
+  // const newComments = [comments.slice(0,commentIndex), comments.slice(commentIndex + 1)];
+
+  // menggunakan spread dan slice
   const newComments = [...comments.slice(0,commentIndex), ...comments.slice(commentIndex + 1)];
   console.log(newComments);
 

@@ -6,10 +6,32 @@
 </head>
 <body>
 <script>
+
+  // object literal update
+
+  // contoh const first dll masukan ke new const object
   const first = 'snickers';
   const last = 'bos';
   const age = 2;
   const breed = 'King Charles Cav';
+
+  // contoh lama 
+  // const dog = {
+  //   first : first,
+  //   last : last,
+  //   age : age,
+  //   breed : breed,
+  // }
+
+  // atau bisa juga
+  // const dog = {
+  //   first,
+  //   last,
+  //   age,
+  //   breed,
+  // }
+
+  // atau bisa juga key direname dan menambahkan key baru
   const dog = {
     firstName: first,
     last,
@@ -19,6 +41,36 @@
   };
   console.log(dog);
 
+  // method definition di dalam object
+  // masih belum begitu paham perlu dipelajari lagi
+
+  // contoh lama
+  // const modal = {
+  //   create : function() {
+
+  //   },
+  //   open : function() {
+
+  //   },
+  //   close : function() {
+
+  //   }
+  // }
+
+  // atau bisa juga
+  // const modal = {
+  //   create() {
+
+  //   },
+  //   open() {
+
+  //   },
+  //   close() {
+
+  //   }
+  // }
+
+  // atau dengan params
   const modal = {
     create(selector) {
 
@@ -31,21 +83,40 @@
     }
   }
 
+  // function invertcolor
   function invertColor(color) {
       return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
   }
 
+
+  // dua value dibawah menjadi object
   const key = 'pocketColor';
   const value = '#ffc600';
 
+  // cara pertama
+  // const tShirt = {
+  //   [key]: value
+  // }
+
+  // bagaimana kalau warna berlawanan mau dimasukan ke object juga
   const tShirt = {
     [key]: value,
+    // dengan cara dibawah ini memanggil function invertcolor dan memasukan ke object secara dynamic
     [`${key}Opposite`]: invertColor(value)
   };
 
+  // sebelum ada cara diatas cara lama yang biasa digunakan
+  // const tShirt = {};
+  // tShirt[key]: value,
+  // tShirt[`${key}Opposite`]: invertColor(value);
+  console.log(tShirt);
+
+
+  // terkadang ada data yang seperti ini dari API
+  // dan tidak punya banyak pilihan dalam mengconvertnya menjadi object
   const keys = ['size', 'color', 'weight'];
   const values = ['medium', 'red', 100];
-
+ 
   const shirt = {
     [keys.shift()]: values.shift(),
     [keys.shift()]: values.shift(),

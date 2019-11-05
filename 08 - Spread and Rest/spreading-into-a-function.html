@@ -6,17 +6,34 @@
 </head>
 <body>
 <script>
+  // menggabungkan dua array masukan ke belakang 
   const inventors = ['Einstein', 'Newton', 'Galileo'];
   const newInventors = ['Musk', 'Jobs'];
+
+  // cara yang salah
+  // inventors.push(newInventors);
+  // ['Einstein', 'Newton', 'Galileo', ['Musk', 'Jobs']]
+
+  // cara lama yang agak membingungkan karena ada 2 inventors
+  // inventors.push.apply(inventors, newInventors);
+  // karena secara literal di push sebagai berikut
+  // inventors.push.('Musk', 'Jobs');
+
+  // menggunakan spread ...
   inventors.push(...newInventors);
   console.log(inventors);
 
-  const name = ['Wes', 'Bos'];
+
+  // contoh lain spread untuk function
+  const name = ['John', 'Jobber'];
 
   function sayHi(first, last) {
     alert(`Hey there ${first} ${last}`);
   }
+  // cara ini tidak praktis karena bagaimana kalau const name mempunyai banyak item
+  // sayHi(name[0], name[1]);
 
+  // maka gunakan spread
   sayHi(...name);
 
 </script>
